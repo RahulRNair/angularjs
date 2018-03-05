@@ -1,0 +1,40 @@
+<app-header></app-header>
+<div class="container ">
+    
+
+    <div class="align-center">
+        <div class="form-group">
+            <div class="input-group mb-3">
+            <input class="form-control form-control-lg" type="text" placeholder="Search" #query >
+            <div class="input-group-append">
+                <span class="input-group-text search_button" id="basic-addon2"  (click)="search(query.value)">Search</span>
+            </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="_postsArray.length > 0">
+            <table class="table">
+                <thead class="thead-inverse">
+                <tr>
+                    <th class="text-center">UserName</th>
+                    <th class="text-center">Email</th>
+                  
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let post of _postsArray">
+                    <td class="text-center" style="width: 15px;">{{post.username}}</td>
+                    <td class="text-center" style="width: 15px;">{{post.email}}</td>
+                   
+                </tr>
+                </tbody>
+            </table>
+        </div> 
+        <div class="row" *ngIf="_postsArray.length <= 0">
+            <table class="table">
+                <span class="alert errmsg">No Data Found!!!</span>
+            </table>
+        </div>
+          
+    </div>
+    
+</div>
